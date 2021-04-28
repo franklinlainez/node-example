@@ -5,4 +5,12 @@ class someClass {
     console.log("lel");
   }
 }
+
+// Easy export
 module.exports = { sum, PI, someClass };
+
+/* 
+Other ways to export
+module.exports. sum = sum
+module.exports = {sum:sum}
+*/
