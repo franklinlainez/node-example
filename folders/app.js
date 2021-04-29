@@ -30,11 +30,26 @@ const fs = require("fs");
 
 // Delete a folder with a file in it
 
-fs.unlink("./tutorial/example.txt", (error) => {
-  if (error) console.log(error);
-  else
-    fs.rmdir("./tutorial", (error) => {
-      if (error) console.log(error);
-      else console.log("folder succesfully removed");
-    });
+// fs.unlink("./tutorial/example.txt", (error) => {
+//   if (error) console.log(error);
+//   else
+//     fs.rmdir("./tutorial", (error) => {
+//       if (error) console.log(error);
+//       else console.log("folder succesfully removed");
+//     });
+// });
+
+// Delete multiple files
+
+fs.readdir("example", (error, files) => {
+  if (error) {
+    console.log(error);
+  } else {
+    for (let file of files) {
+      fs.unlink("./example/" + file, (error) => {
+        if (error) console.log(error);
+        else console.log("successfully deleted file");
+      });
+    }
+  }
 });
