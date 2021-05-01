@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="/post" method="post" id="form">
+      <input type="text" placeholder="email" name="email" />
+      <input type="password" placeholder="password" name="password" />
+      <button type="submit">Send</button>
+    </form>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(document).ready(() => {
+        $("#form").submit((ev) => {
+          ev.preventDefault();
+          $.ajax({
+            url: "/post_json",
+            type: "post",
+            contentType: "application/json",
+            data: JSON.stringify($("#form").serializeArray()),
+            success: (res) => {
+              console.log("succesfully got response");
+              console.log(res);
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
