@@ -10,7 +10,10 @@ npm init
     -description
     -entrypoint : starting file for entry point (command)
 
+npm init --yes (no configuration)
+
 // npmjs.com
 npm install {packageName} -> adds to dependecies
+npm uninstall {packageName} -> remove from dependencies
 
 */
